@@ -27,7 +27,7 @@ class mrjohnson extends Component {
           <Text style={styles.title}>
             Zufallsrun
           </Text>
-          <TouchableHighlight onPress={() => this.setState({ currentRun: "egal" })}>
+          <TouchableHighlight underlayColor="#F5FCFF" onPress={() => this.setState({ currentRun: "egal" })}>
             <Text style={styles.newRun}>
               <Icon name="refresh" size={25} color="#900" />
             </Text>
