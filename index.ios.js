@@ -8,18 +8,31 @@ import React, {
   Component,
   StyleSheet,
   Text,
+  TouchableHighlight,
   View
 } from 'react-native';
 
 var shadowrandom = require("shadowrandom");
 
 class mrjohnson extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
+      <Text style={styles.welcome}>
+        Zufallsrun
+      </Text>
+        <Text style={styles.instructions}>
           {shadowrandom.randomRun()}
         </Text>
+        <TouchableHighlight onPress={() => this.setState({ currentRun: "egal" })}>
+          <Text style={styles.next}>
+            Neuer Run
+          </Text>
+        </TouchableHighlight>
       </View>
     );
   }
