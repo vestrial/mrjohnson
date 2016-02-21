@@ -13,6 +13,7 @@ import React, {
 } from 'react-native';
 
 var shadowrandom = require("shadowrandom");
+var Icon = require('react-native-vector-icons/FontAwesome');
 
 class mrjohnson extends Component {
   constructor(props) {
@@ -22,17 +23,19 @@ class mrjohnson extends Component {
   render() {
     return (
       <View style={styles.container}>
-      <Text style={styles.welcome}>
-        Zufallsrun
-      </Text>
-        <Text style={styles.instructions}>
+        <View style={styles.topbar}>
+          <Text style={styles.title}>
+            Zufallsrun
+          </Text>
+          <TouchableHighlight onPress={() => this.setState({ currentRun: "egal" })}>
+            <Text style={styles.newRun}>
+              <Icon name="refresh" size={25} color="#900" />
+            </Text>
+          </TouchableHighlight>
+        </View>
+        <Text style={styles.result}>
           {shadowrandom.randomRun()}
         </Text>
-        <TouchableHighlight onPress={() => this.setState({ currentRun: "egal" })}>
-          <Text style={styles.next}>
-            Neuer Run
-          </Text>
-        </TouchableHighlight>
       </View>
     );
   }
@@ -41,19 +44,30 @@ class mrjohnson extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'flex-start',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  topbar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: '#F5FCFF',
+    marginHorizontal: 20,
+    marginTop: 30,
+    marginBottom: 10,
   },
-  instructions: {
-    textAlign: 'center',
+  title: {
+    fontSize: 20,
+    textAlign: 'left',
+  },
+  newRun: {
+    fontSize: 20,
+    textAlign: 'right',
+  },
+  result: {
+    flex: 1,
+    textAlign: 'auto',
     color: '#333333',
-    marginBottom: 5,
+    marginHorizontal: 20,
   },
 });
 
